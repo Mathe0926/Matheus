@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto</title>
+</head>
+<body>
+    <h2>Amigo Secreto</h2>
+    <p>Digite o nome de todos os participantes e clique em "Sortear".</p>
+    
+    <label for="names">Digite os nomes (separados por vírgula):</label><br>
+    <input type="text" id="names" placeholder="Ex: João, Maria, Pedro, Ana" /><br><br>
+    
+    <button onclick="sortear()">Sortear Amigo Secreto</button>
+    
+    <h3>Resultados:</h3>
+    <ul id="resultados"></ul>
+    
+    <script>
+        function sortear() {
+            // Pegando os nomes do input
+            let input = document.getElementById('names').value;
+            let nomes = input.split(',').map(nome => nome.trim());
+
+            if (nomes.length < 2) {
+                alert('Por favor, insira pelo menos 2 nomes.');
+                return;
+            }
+
+            // Embaralhando a lista de nomes
+            let amigos = [...nomes];
+            let resultados = [];
+            let sorteados = [];
+
+            while (amigos.length > 0) {
+                // Sorteia um amigo aleatório
+                let indice = Math.floor(Math.random() * amigos.length);
+                let amigo = amigos.splice(indice, 1)[0];
+
+                // Garantir que ninguém sorteie a si mesmo
+                while (sorteados.includes(amigo)) {
+                    indice = Math.floor(Math.random() * amigos.length);
+                    amigo = amigos.splice(indice, 1)[0];
+                }
+
+                resultados.push(`${nomes[sorteados.length]} - ${amigo}`);
+                sorteados.push(amigo);
+            }
+
+            // Exibindo os resultados
+            let ul = document.getElementById('resultados');
+            ul.innerHTML = ''; // Limpar resultados anteriores
+            resultados.forEach(resultado => {
+                let li = document.createElement('li');
+                li.textContent = resultado;
+                ul.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
