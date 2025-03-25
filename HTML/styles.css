@@ -1,0 +1,106 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Botão de login */
+.button-google {
+    display: inline-block;
+    background-color: #4285F4;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button-google:hover {
+    background-color: #357ae8;
+}
+
+/* Mapa Mental */
+.mindmap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.mindmap div {
+    width: 100px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* Seção de informações */
+.info-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.info-box {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.info-box p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .mindmap {
+        flex-direction: column;
+    }
+
+    .info-container {
+        flex-direction: column;
+    }
+
+    .info-box {
+        width: 90%;
+    }
+}
